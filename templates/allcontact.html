@@ -1,0 +1,49 @@
+{% extends "adminlayout.html" %}
+{% block body %}
+  <!-- Footer -->
+
+
+</body>
+<!--fetch using the for loop-->
+
+<div class="container">
+
+
+    <hr>
+
+          <h3>
+         <a href = "{{ url_for('allcontact') }}"></a>
+         </h3>
+
+          <hr/>
+       <h1>Visitors Contacts Details</h1>
+    <table class="table">
+    <thead>
+      <tr>
+          <th>Sno</th>
+          <th>Name</th>
+          <th>Email id</th>
+          <th>Phone No.</th>
+          <th>Message</th>
+          <th>Date</th>
+          <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    	{% for contact in contacts %}
+
+      <tr>
+          <td>{{ contact.sno }}</td>
+          <td>{{ contact.name }}</td>
+          <td>{{ contact.email }}</td>
+          <td>{{ contact.phone_num }}</td>
+          <td>{{ contact.msg }}</td>
+          <td>{{ contact.date}}</td>
+        <td><a href="/deletecontact/{{contact.sno}}"><button class="btn btn-primary">Delete</button></a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+    </table>
+      </div>
+    {% endblock %}
